@@ -18,7 +18,8 @@ was written by hand.
 | `index.html` | Root copy of the English code-viewer page (served by GitHub Pages) |
 | `output/` | Result figures: qualitative samples, training curves |
 | `AI_Assignment1_Report.docx` / `.pdf` | The assignment report (Word / PDF) |
-| **`requirements.txt`** | **Assignment requirements (NOT Python dependencies):** the report must cover 6 points — (1) how I asked AI tools to find the algorithm, (2) algorithm description, (3) how AI implements the algorithm, (4) experiment settings and results, (5) what I learnt from this AI assignment, and (6) a webpage link of the source codes |
+| `README.md` | This file |
+| **`requirements.txt`** | **Assignment requirements (NOT Python dependencies):** the report covers 6 points — (1) how I asked AI tools to find the algorithm, (2) algorithm description, (3) how AI implements the algorithm, (4) experiment settings and results, (5) what I learnt from this AI assignment, and (6) a webpage link of the source codes |
 
 > **Important:** `requirements.txt` is the assignment specification (what the
 > report must contain) — it is **not** a Python dependency list. The real
@@ -41,18 +42,25 @@ pip install torch torchvision numpy matplotlib pillow --index-url https://downlo
 The Fashion-MNIST dataset is downloaded automatically on first run:
 
 ```bash
-python litevae_fmnist.py --epochs 14 --kl-weight 1e-4
+python litevae_fmnist.py --epochs 15 --kl-weight 1e-4
 ```
 
 Figures and the model checkpoint are saved to `output/`.
 
-## Results (Fashion-MNIST test set)
+## Results (Fashion-MNIST test set, 15 epochs, CPU)
 
 | Metric | Clean reconstruction | Denoising (Gaussian, σ=0.2) |
 |--------|----------------------|-----------------------------|
-| MSE ↓  | 0.0101               | 0.0113                      |
-| PSNR ↑ (dB) | 19.97            | 19.47                       |
+| MSE ↓  | 0.0101               | —                           |
+| PSNR ↑ (dB) | 19.98            | 19.46                       |
 | SSIM ↑ | 0.878                | 0.864                       |
+
+Training behaviour (15 epochs): the reconstruction loss falls from 0.0237 to
+0.0115 and levels off after ≈ epoch 10 (converged, no divergence or NaN); the
+KL divergence rises mildly from 75.4 to 82.0, which with the small KL weight
+(1e–4, annealed) reflects the encoder focusing capacity on reconstruction and
+is not pathological, though it is monitored for latent collapse. There is no
+meaningful gap between training and test metrics, i.e. no overfitting.
 
 ## Source-code page (report item 6)
 
