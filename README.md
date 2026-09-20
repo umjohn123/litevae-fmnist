@@ -17,7 +17,7 @@ was written by hand.
 | `litevae_site/index.html` | An English webpage that displays the source code |
 | `index.html` | Root copy of the English code-viewer page (served by GitHub Pages) |
 | `output/` | Result figures: qualitative samples, training curves |
-| `AI_Assignment1_Report.docx` / `.pdf` | The assignment report (Word / PDF) |
+| `Assignment1_Report_CHAOWENJIE_UC325315.docx` / `.pdf` | The assignment report (Word / PDF) |
 | `README.md` | This file |
 | **`requirements.txt`** | **Assignment requirements (NOT Python dependencies):** the report covers 6 points — (1) how I asked AI tools to find the algorithm, (2) algorithm description, (3) how AI implements the algorithm, (4) experiment settings and results, (5) what I learnt from this AI assignment, and (6) a webpage link of the source codes |
 
